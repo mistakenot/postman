@@ -1,0 +1,15 @@
+path / {
+  read() { true }
+  write() { true }
+}
+
+type EmailHeader {
+  from: String,
+  to: String,
+  subject: String
+}
+
+type EmailContent {
+  headerId: String,
+  content: String
+}

@@ -9,7 +9,16 @@ exports.Schema = {
         _: 'user-data',
         user: function (id) {
             return {
-                _: id
+                _: 'user-data/' + id,
+                inboxItems: {
+                    _: 'user-data/inbox-items/',
+                    item: function (id) {
+                        return {
+                            _: 'user-data/inbox-items/',
+                            item: function (itemId) { return 'user-data/inbox-items/' + itemId; }
+                        };
+                    }
+                }
             };
         }
     }

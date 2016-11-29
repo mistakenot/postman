@@ -4,6 +4,13 @@ export declare const Schema: {
         _: string;
         user: (id: string) => {
             _: string;
+            inboxItems: {
+                _: string;
+                item: (id: string) => {
+                    _: string;
+                    item: (itemId: string) => string;
+                };
+            };
         };
     };
 };
