@@ -1,7 +1,8 @@
 
 
 export class EmailHeader {
-  from: string;
-  to: string;
-  subject: string;
+  constructor(
+    public from: String,
+    public to: String,
+    public subject: String) {}
 }
