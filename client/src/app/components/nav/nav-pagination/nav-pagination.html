@@ -1,0 +1,15 @@
+<nav aria-label="...">
+  <ul class="pager">
+    <li [class.disabled]="index == 0" class="previous">
+      <a href="#">
+        <span aria-hidden="true">&larr;</span> Older
+      </a>
+    </li>
+    <a>{{index}}</a>
+    <li [class.disabled]="index == maxIndex" class="next">
+      <a href="#">
+        Newer <span aria-hidden="true">&rarr;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,15 @@
+<div class="navbar-header">
+  <a class="navbar-brand" [routerLink]="['/']">{{title}}</a>
+</div>
+<div class="collapse navbar-collapse">
+  <ul class="nav navbar-nav navbar-left">
+    <li><a [routerLink]="['/']">Home</a></li>
+    <li><a [routerLink]="['/about']">About</a></li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li>
+      <a [routerLink]="['/auth/login/external']" *ngIf="!(isLoggedIn | async)">Sign In</a>
+      <a [routerLink]="['/auth/logout']" *ngIf="(isLoggedIn | async)">Sign Out</a>
+    </li>
+  </ul>
+</div>

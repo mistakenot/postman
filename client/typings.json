@@ -1,0 +1,13 @@
+{
+  "name": "angular2-seed",
+  "version": false,
+  "dependencies": {
+    "request": "registry:npm/request#2.69.0+20160428223725"
+  },
+  "globalDependencies": {
+    "core-js": "registry:dt/core-js#0.0.0+20160914114559",
+    "mocha": "registry:dt/mocha#2.2.5+20161028141524",
+    "moment": "registry:dt/moment#2.11.1+20160829143156",
+    "node": "registry:dt/node#6.0.0+20160621231320"
+  }
+}

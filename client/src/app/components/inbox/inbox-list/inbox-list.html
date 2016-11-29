@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="list-group">
+      <div *ngFor="let listItem of listItems">
+        <inbox-list-item
+          [model]="listItem"
+          [isActiveItem]="(activeItem | async).id == listItem.id"
+          (onClick)="onClickItem($event)">
+        </inbox-list-item>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <nav-pagination [maxIndex]="maxListIndex()" [index]="listIndex()"></nav-pagination>
+  </div>
+</div>
