@@ -1,0 +1,20 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /home/charlie/.nvm/versions/node/v7.1.0/bin/node /home/charlie/.nvm/versions/node/v7.1.0/bin/firebase deploy
+[debug] CLI Version:  3.2.0
+[debug] Platform:     linux
+[debug] Node Version: v7.1.0
+[debug] Time:         Wed Nov 30 2016 01:19:01 GMT+0000 (GMT)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/lambda-test-f6747 
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/lambda-test-f6747/tokens 
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'lambda-test-f6747'...
+[info] 
+[info] i  deploying database, hosting
+[info] ✔  database: rules ready to deploy.
+[info] i  hosting: preparing public directory for upload...
+[debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/lambda-test-f6747/uploads/-KXmo3dTARoxSLZuM9qk?fileCount=7&message= 
