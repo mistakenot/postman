@@ -9,7 +9,7 @@
     "watch": "npm run build -- --watch",
     "server": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src",
     "start": "npm run server",
-    "test": ""
+    "test": "npm run build && mocha --compilers ts:ts-node/register --recursive test/**/*-spec.ts"
   },
   "contributors": [
     "Rob Wormald <robwormald@gmail.com>",
@@ -17,14 +17,21 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@types/chai": "3.4.30",
+    "@types/mocha": "2.2.29",
     "angular2-template-loader": "^0.4.0",
     "awesome-typescript-loader": "^1.1.1",
     "css-loader": "^0.23.1",
+    "chai": "^3.5.0",
+    "faker": "^3.1.0",
+    "mocha": "^3.0.1",
     "gulp": "^3.9.1",
     "gulp-jasmine": "^2.4.2",
     "jasmine": "^2.5.2",
     "raw-loader": "^0.5.1",
+    "rimraf": "^2.5.4",
     "to-string-loader": "^1.1.4",
+    "ts-node": "^1.2.2",
     "typescript": "^2.0.2",
     "typings": "~1.0.3",
     "webpack": "^1.12.9",

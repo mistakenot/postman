@@ -16,15 +16,14 @@ const blankSchema: IBlankSchema = {
 export const Schema = {
   userData: {
     _: 'user-data',
-    user: (id: string) => {
+    user: (userId: string) => {
       return {
-        _: 'user-data/' + id,
-        inboxItems: {
-          _: 'user-data/inbox-items/',
+        _: 'user-data/' + userId,
+        emailHeader: {
+          _: 'user-data/' + userId + '/email-header/',
           item: (id: string) => {
             return {
-              _: 'user-data/inbox-items/',
-              item: (itemId: string) => 'user-data/inbox-items/' + itemId
+              _: 'user-data/' + userId + '/email-header/' + id
             }
           }
         }

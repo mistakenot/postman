@@ -1,22 +1,26 @@
-import {FirebaseHttp, IEmailService, EmailService} from '../../src/services';
+import {FirebaseHttp, IEmailService, EmailService, Schema} from '../../src/services';
 import {EmailModel} from '../../src/models';
+import {DatabaseContext} from '../database-context';
 import * as chai from 'chai';
 import * as faker from 'faker';
 import "mocha";
 
 const expect = chai.expect;
-const fb = new FirebaseHttp("https://lambda-test-f6747.firebaseio.com/");
+const fbUrl = "https://lambda-test-f6747.firebaseio.com/";
+const fb = new FirebaseHttp(fbUrl);
 
 describe("[Walking Skeleton] EmailService", () => {
   var service: IEmailService;
   var userId: string;
+  var db: DatabaseContext;
 
   before(() => {
-    service = new EmailService();
+    db = new DatabaseContext();
+    service = new EmailService(db.get());
     userId = faker.random.uuid();
   });
   
-  it("returns EmailHeader object when given valid parameters with username", done => {
+  it("Creates valid email content and header in database.", done => {
     let email = {
       to: "bob@email.com",
       from: "tim@email.com",
@@ -28,8 +32,21 @@ describe("[Walking Skeleton] EmailService", () => {
       .then(result => {
         expect(result.from).to.eq(email.from);
         expect(result.to).to.eq(email.to);
-        expect(result.subject).to.eq(email.subject)
-        done();
+        expect(result.subject).to.eq(email.subject);
+        expect(result.id).to.not.be.undefined;
+
+        let url = Schema.userData.user(userId).emailHeader.item(result.id)._;
+
+        db.get().get(url)
+          .then(val => {
+            expect(val.from).to.eq(email.from);
+            expect(val.to).to.eq(email.to);
+            expect(val.subject).to.eq(email.subject);
+            done();
+          })
+          .catch(e => {
+            done(e);
+          })
       })
       .catch(e => {
         done(e);
@@ -41,7 +58,7 @@ describe("[Unit Test] EmailService", () => {
   var service: EmailService;
 
   beforeEach(() => {
-    service = new EmailService();
+    service = new EmailService(fb);
   });
 
   describe("createEmail", () => {

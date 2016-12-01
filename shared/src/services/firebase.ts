@@ -1,6 +1,14 @@
 import * as request from 'request';
 
-export class FirebaseHttp {
+export interface IFirebaseHttp {
+  get(relativePath: string): Promise<any>;
+
+  set(relativePath: string, body: any): Promise<any>;
+
+  push(relativePath: string, body: any): Promise<any>;
+}
+
+export class FirebaseHttp implements IFirebaseHttp {
   constructor(
     private _baseUrl: string, 
     private _authToken?: string) {
@@ -13,8 +21,7 @@ export class FirebaseHttp {
         if (error) {
           reject(error);
         }
-
-        resolve(body); 
+        resolve(JSON.parse(body)); 
       });
     });
   }
@@ -29,7 +36,7 @@ export class FirebaseHttp {
             reject(error)
           }
 
-          resolve(body);
+          resolve(JSON.parse(body));
         }
       )
     });
@@ -45,7 +52,7 @@ export class FirebaseHttp {
             reject(error)
           }
 
-          resolve(body);
+          resolve(JSON.parse(body));
         }
       )
     });
