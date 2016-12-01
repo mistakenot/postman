@@ -19,6 +19,10 @@ describe("[Walking Skeleton] EmailService", () => {
     service = new EmailService(db.get());
     userId = faker.random.uuid();
   });
+
+  after(done => {
+    db.dispose().then(done);
+  });
   
   it("Creates valid email content and header in database.", done => {
     let email = {

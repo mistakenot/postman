@@ -1,0 +1,22 @@
+{
+  "name": "postman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mistakenot/postman.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mistakenot/postman/issues"
+  },
+  "homepage": "https://github.com/mistakenot/postman#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

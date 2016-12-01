@@ -1,0 +1,14 @@
+{
+  "user-data": {
+    "0add7296-29ae-455e-9013-b629d6e8f868": {
+      "email-header": {
+        "-KXwbC64AA_wHrF9oyaH": {
+          "content":"Where are ya pal?",
+          "from":"tim@email.com",
+          "subject":"G'Day",
+          "to":"bob@email.com"
+        }
+      }
+    }
+  }
+}

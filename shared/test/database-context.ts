@@ -20,4 +20,9 @@ export class DatabaseContext {
     return this._fb.set("", {})
   }
 
+  populate(): Promise<any> {
+    var mockData = require('./mock-data.json');
+    return this._fb.set("", mockData);
+  }
+
 }
